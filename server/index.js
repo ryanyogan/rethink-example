@@ -19,7 +19,7 @@ const app = express();
 app.use('/', express.static('assets'));
 
 app.post('/signup', (req, res) => {
-  const {userId, password} req.query;
+  const {userId, password} = req.query;
   authManager.signup(userId, password).then(user => {
     res.send({userId: user.id, authToken: user.authToken});
   }, error => {
